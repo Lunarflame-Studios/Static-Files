@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>LunarFlame Blog</title>
+        <link>https://lunarflame.dev</link>
+        <description>Articles, Opinions, and Updates from LunarFlame Studios</description>
+        <language>en-us</language>
+        <!--Most Recent Posts Should go at the Top-->
+        <item>
+            <title>ACBLOT: Programming with C</title>
+            <link>https://lunarflame.dev/blog/misc/ACBLOT</link>
+            <description>I spent some time making a C script to automate making blog posts. Here's what I learned.</description>
+            <pubDate>Apr 09, 2025</pubDate>
+            <author>Phantom</author>
+            <category>Misc.</category>
+            <thumbnail>https://static.lunarflame.dev/images/blog/C_programming.png</thumbnail>
+        </item>
+
+        <item>
+            <title>Play Project Leo v0.45</title>
+            <link>https://lunarflame.dev/blog/project-leo/v045</link>
+            <description>Project Leo v0.45 is out! We've prepared a ton of new features.</description>
+            <pubDate>Sun, 25 Aug 2024</pubDate>
+            <author>Kapeepa</author>
+            <category>Project Leo</category>
+            <thumbnail>https://static.lunarflame.dev/images/screenshots/PL_SS_5.png</thumbnail>
+        </item>
+        <item>
+            <title>Play Project Leo v0.4</title>
+            <link>https://lunarflame.dev/blog/project-leo/v04</link>
+            <description>Project Leo v0.4 is out now. Check out the release notes.</description>
+            <pubDate>Sat, 08 Apr 2024</pubDate>
+            <author>Phantom</author>
+            <category>Project Leo</category>
+            <thumbnail>https://static.lunarflame.dev/images/screenshots/PL_SS_3.png</thumbnail>
+        </item>
+        <item>
+            <title>My Curiosity Moment</title>
+            <link>https://lunarflame.dev/blog/misc/curiosity-moment</link>
+            <description>I believe that video games are the future of storytelling. Here's why.</description>
+            <pubDate>Fri, 19 Mar 2024</pubDate>
+            <author>Phantom</author>
+            <category>Misc.</category>
+            <thumbnail>https://static.lunarflame.dev/images/screenshots/Horizon_Skyline_1.png</thumbnail>
+        </item>
+        <item>
+            <title>Hello World; An Introduction</title>
+            <link>https://lunarflame.dev/blog/misc/hello-world</link>
+            <description>What is LunarFlame Studios? A little bit about us and our goals.</description>
+            <pubDate>Sun, 04 Feb 2024</pubDate>
+            <author>Phantom</author>
+            <category>Misc.</category>
+            <thumbnail>https://static.lunarflame.dev/images/devs/Nordic.jpg</thumbnail>
+        </item>
+    </channel>
+</rss>

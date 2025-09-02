@@ -14,6 +14,14 @@ const homePageInstance = function() {
         DEFAULT_BACKGROUND
     ];
 
+    const PRELOADED_IMAGES = [];
+    IMAGE_PATHS.forEach((path) => {
+        const IMG = new Image();
+        IMG.src = path;
+        console.log(IMG.src);
+        PRELOADED_IMAGES.push(IMG);
+    });
+
     let currentIndex = 0;
 
     const FADE_INTERVAL = 8000;

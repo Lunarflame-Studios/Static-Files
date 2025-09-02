@@ -30,7 +30,7 @@
 
     // Change this to 'pages/' if necessary.
     define('PAGE_ROOT', '');
-    define('ASSETS', 'assets');
+    define('ASSETS', 'https://static.lunarflame.dev');
 
     define('IMAGE_ROOT', ASSETS . '/images');
     define('VFX', IMAGE_ROOT . '/vfx');
@@ -225,9 +225,9 @@
 
     class Blog {
 
-        public static function parseRSS(string $directory = '../../../') : array {
+        public static function parseRSS() : array {
 
-            $rss = simplexml_load_file($directory . 'rss.xml');
+            $rss = simplexml_load_file('/var/www/static.lunarflame.dev/rss.xml');
             $domainLength = strlen('https://lunarflame.dev/');
 
             if (!$rss) {
@@ -237,13 +237,14 @@
             $posts = [];
             foreach ($rss->channel->item as $item) {
                 $post = new BlogPost(
-                    (string) $item->title,
-                    (string) $item->description,
-                    (string) $item->author,
-                    (string) $item->pubDate,
-                    (string) $item->category,
-                    substr((string) $item->link, $domainLength), // Remove the domain part from the link
-                    substr((string) $item->thumbnail, $domainLength) // Remove the domain part from the thumbnail URL
+                    $item->title,
+                    $item->description,
+                    $item->author,
+                    $item->pubDate,
+                    $item->category,
+                    substr($item->link, $domainLength), // Remove the domain part from the link
+                    $item->thumbnail
+                    //substr((string) $item->thumbnail, $subDomainLength) // Remove the domain part from the thumbnail URL
                 );
                 $posts[] = $post;
             }
