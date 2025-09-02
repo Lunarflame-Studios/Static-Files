@@ -18,7 +18,6 @@ const homePageInstance = function() {
     IMAGE_PATHS.forEach((path) => {
         const IMG = new Image();
         IMG.src = path;
-        console.log(IMG.src);
         PRELOADED_IMAGES.push(IMG);
     });
 
