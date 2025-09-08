@@ -1,6 +1,6 @@
 <?php
 
-require("partials/server.php");
+require_once("partials/server.php");
 
 define('BLOG_URL', MAIN_URL . '/blog');
 
