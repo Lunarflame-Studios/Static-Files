@@ -30,7 +30,12 @@
 
     // Change this to 'pages/' if necessary.
     define('PAGE_ROOT', '');
-    define('ASSETS', 'https://static.lunarflame.dev');
+    
+    define('MAIN_URL', 'https://lunarflame.dev');
+    define('STATIC_URL', 'https://static.lunarflame.dev');
+    define('ADRI_URL', 'https://adrian.lunarflame.dev');
+
+    define('ASSETS', STATIC_URL);
 
     define('IMAGE_ROOT', ASSETS . '/images');
     define('VFX', IMAGE_ROOT . '/vfx');
