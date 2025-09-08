@@ -33,11 +33,14 @@
     define('STATIC_URL', 'https://static.lunarflame.dev');
     define('ADRI_URL', 'https://adrian.lunarflame.dev');
     define('ASSETS', STATIC_URL);
+    define('BLOG_URL', MAIN_URL . '/blog');
 
     define('IMAGE_ROOT', ASSETS . '/images');
     define('VFX', IMAGE_ROOT . '/vfx');
     define('DEVS', IMAGE_ROOT . '/devs');
     define('SS', IMAGE_ROOT . '/screenshots');
+    define('BLOG_IMAGES', IMAGE_ROOT . '/blog');
+
     define('JS', ASSETS . '/js');
     define('I_JS', ASSETS . '/importedJS');
 

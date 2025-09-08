@@ -1,11 +1,7 @@
 <?php
-
 require_once('partials/constants.php');
-
-define('BLOG_URL', MAIN_URL . '/blog');
 define('MISC', BLOG_URL . '/misc');
 define('PROJ_LEO', BLOG_URL . '/project-leo');
-
 function getEntries() {
     return [
         // Most Recent Posts Should go at the Top
@@ -16,7 +12,7 @@ function getEntries() {
             "date" => "Apr 09, 2025",
             "author" => "Phantom",
             "category" => "Misc.",
-            "thumbnail" => IMAGE_ROOT . "/blog/C_programming.png"
+            "thumbnail" => BLOG_IMAGES . "/C_programming.png"
         ],
         [
             "title" => "Play Project Leo v0.45",
