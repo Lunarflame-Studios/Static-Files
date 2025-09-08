@@ -2,7 +2,7 @@
 
 <div class="recent">
     <?php
-        global $allPosts;
+        $allPosts = Blog::parseRSS();
         for ($i = 0; $i < 3; $i++) {
             Blog::createPostHTML($allPosts[$i]);
         }

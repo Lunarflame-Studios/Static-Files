@@ -1,78 +1,22 @@
 <?php 
-    $allPosts = null;
-
-    define('OVERLAY', <<<HTML
-        <span id="overlay"></span>
-        <img id="zoom-in" src="" alt="">
-    HTML);
-
-    define('EMPTY_CHAR', '&#8203;');
-    define('EMPTY_STRING', '');
-
-    define('BLOG_POST', <<<HTML
-        <div class="post">
-            <a id="link" href="{link}">
-                <div class="thumbnail">
-                    <img class="blog-img" src="{thumbnail}" alt="blog img">
-                </div>
-                <div class="metadata">
-                    <h2 id="category">{category}</h2>
-                    <h3 id="title">{title}</h3>
-                    <p id="description">{description}</p>
-                    <div>
-                        <strong id="author">{author}</strong>
-                        <span id="pubDate">{pubDate}</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    HTML);
-
-    // Change this to 'pages/' if necessary.
-    define('PAGE_ROOT', '');
     
-    define('MAIN_URL', 'https://lunarflame.dev');
-    define('STATIC_URL', 'https://static.lunarflame.dev');
-    define('ADRI_URL', 'https://adrian.lunarflame.dev');
-
-    define('ASSETS', STATIC_URL);
-
-    define('IMAGE_ROOT', ASSETS . '/images');
-    define('VFX', IMAGE_ROOT . '/vfx');
-    define('DEVS', IMAGE_ROOT . '/devs');
-    define('SS', IMAGE_ROOT . '/screenshots');
-    define('JS', ASSETS . '/js');
-    define('I_JS', ASSETS . '/importedJS');
-
-    define('H1', 'h1');
-    define('H2', 'h2');
-    define('H3', 'h3');
-    define('H4', 'h4');
-    define('P', 'p');
-
-    define('PINK', 'pink');
-    define('BLUE', 'blue');
-    define('LIGHT_BLUE', 'light-blue');
-    define('PURPLE', 'purple');
-
-    define('DEFAULT_PARAGRAPH', P);
-    define('DEFAULT_HEADER', H1);
+    require_once('constants.php');
 
     function getHeader() : void {
-        require('header.php');
+        require_once('header.php');
     }
 
     function getFooter() : void{
-        require('footer.php');
+        require_once('footer.php');
     }
 
     function endPage() : void {
-        require('copyright.php');
-        require('javascript.php');
+        require_once('copyright.php');
+        require_once('javascript.php');
     }
 
     function getRecentPosts() : void {
-        require('recent-posts.php');
+        require_once('recent-posts.php');
     }
 
     function gradient(int $color, string $content) : void {
@@ -231,25 +175,18 @@
     class Blog {
 
         public static function parseRSS() : array {
-
-            $rss = simplexml_load_file('/var/www/static.lunarflame.dev/rss.xml');
-            $domainLength = strlen('https://lunarflame.dev/');
-
-            if (!$rss) {
-                throw new Exception('Failed to load RSS feed.');
-            }
+            include_once('/var/www/static.lunarflame.dev/rss-entries.php');
 
             $posts = [];
-            foreach ($rss->channel->item as $item) {
+            foreach (getEntries() as $item) {
                 $post = new BlogPost(
-                    $item->title,
-                    $item->description,
-                    $item->author,
-                    $item->pubDate,
-                    $item->category,
-                    substr($item->link, $domainLength), // Remove the domain part from the link
-                    $item->thumbnail
-                    //substr((string) $item->thumbnail, $subDomainLength) // Remove the domain part from the thumbnail URL
+                    $item['title'],
+                    $item['desc'],
+                    $item['author'],
+                    $item['date'],
+                    $item['category'],
+                    substr($item['link'], strlen(MAIN_URL . '/')), // Remove the domain part from the link
+                    $item['thumbnail']
                 );
                 $posts[] = $post;
             }

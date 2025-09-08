@@ -12,7 +12,7 @@
         <description>Articles, Opinions, and Updates from LunarFlame Studios</description>
         <language>en-us</language>
 
-        <?php foreach ($posts as $post): ?>
+        <?php foreach (getEntries() as $post): ?>
             <item>
                 <title><?= htmlspecialchars($post['title']); ?></title>
                 <link><?= htmlspecialchars($post['link']); ?></link>
